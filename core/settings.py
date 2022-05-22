@@ -9,7 +9,10 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+from decouple import config, Csv
+from pathlib import Path
+import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,7 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-   'djangocms_admin_style',
+    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -105,25 +108,25 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DB_NAME'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
-        'USER': config('DB_USER'),
-        'URL': config('DB_URI'),
-        'PASSWORD': config('DB_PASSWORD')
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-}  
+}
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': config('DB_NAME'),
+#         'HOST': config('DB_HOST'),
+#         'PORT': config('DB_PORT'),
+#         'USER': config('DB_USER'),
+#         'URL': config('DB_URI'),
+#         'PASSWORD': config('DB_PASSWORD')
+
+#     }
+# }  
 
 
 # Password validation
@@ -201,22 +204,22 @@ STATICFILES_DIRS = [
 ]
 
 
-AWS_ACCESS_KEY_ID=config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY=config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME=config('AWS_STORAGE_BUCKET_NAME')
+# AWS_ACCESS_KEY_ID=config('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY=config('AWS_SECRET_ACCESS_KEY')
+# AWS_STORAGE_BUCKET_NAME=config('AWS_STORAGE_BUCKET_NAME')
 
-AWS_URL = config('AWS_URL')
-AWS_S3_FILE_OVERWRITE = False
-AWS_S3_CUSTOM_DOMAIN = 'cdn.mydomain.com'
-AWS_S3_OBJECT_PARAMETERS= {'CacheControl': 'max-age=86400'}
+# AWS_URL = config('AWS_URL')
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_S3_CUSTOM_DOMAIN = 'cdn.mydomain.com'
+# AWS_S3_OBJECT_PARAMETERS= {'CacheControl': 'max-age=86400'}
 
-AWS_LOCATION = 'STATIC'
-AWS_S3_REGION_NAME = 'us-west-2'
-AWS_S3_SIGNATURE_VERSION = 's3v4'
+# AWS_LOCATION = 'STATIC'
+# AWS_S3_REGION_NAME = 'us-west-2'
+# AWS_S3_SIGNATURE_VERSION = 's3v4'
 
-# STATIC_URL = '/static/'
-STATIC_URL = AWS_URL + '/STATIC/'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-MEDIA_URL = AWS_URL + '/media/'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = '/static/'
+# STATIC_URL = AWS_URL + '/STATIC/'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+# MEDIA_URL = AWS_URL + '/media/'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
