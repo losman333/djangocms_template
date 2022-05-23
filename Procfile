@@ -1,1 +1,1 @@
-web: gunicorn dcms_template.wsgi
+web: gunicorn core.wsgi
