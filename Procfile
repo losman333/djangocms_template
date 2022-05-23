@@ -1,0 +1,1 @@
+web: gunicorn djangocms_template.wsgi
