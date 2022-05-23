@@ -1,1 +1,1 @@
-web: gunicorn djangocms_template.wsgi
+web: gunicorn dcms_template.wsgi
