@@ -13,7 +13,6 @@ boto3==1.23.4
 botocore==1.26.4
 colorama==0.4.4
 cssselect2==0.6.0
-decouple==0.0.7
 dj-database-url==0.5.0
 Django==3.2
 django-appconf==1.0.5
