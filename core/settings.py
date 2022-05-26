@@ -64,7 +64,7 @@ INSTALLED_APPS = [
     # 'aldryn_people',
     # 'aldryn_translation_tools',
     'parler',
-    'sortedm2m',
+    'sortedm2m'
 ]
 
 MIDDLEWARE = [
