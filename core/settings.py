@@ -205,7 +205,7 @@ STATICFILES_DIRS = [
     os.path.join( BASE_DIR, "static")
 ]
 
-STATIC_ROOT = str(BASE_DIR.joinpath('static'))
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # new
 
 AWS_ACCESS_KEY_ID=config('AWS_ACCESS_KEY_ID')
