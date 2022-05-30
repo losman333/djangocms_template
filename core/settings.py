@@ -205,6 +205,9 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.background',
 )
 
+META_SITE_PROTOCOL = 'https'  # set 'http' for non ssl enabled websites
+META_USE_SITES = True
+
 STATICFILES_DIRS = [
     os.path.join( BASE_DIR, "static")
 ]
