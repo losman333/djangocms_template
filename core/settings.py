@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'taggit',
     'easy_thumbnails',
     'mptt',
-    'djangocms-blog',
+    'djangocms_blog',
     'djangocms_text_ckeditor',
     'djangocms_link',
     'djangocms_file',
